@@ -1,0 +1,830 @@
+<!doctype html>
+<html lang="it" class="pi-lg pi-firefox pi-domain pi-domain-posteit">
+  <head>
+    <title>Accedi o Registrati</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no, user-scalable=0"
+    />
+
+    <!-- Stili slick -->
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="../assets-da/vendor/accessible-slick/css/slick.min.css"
+    />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="../assets-da/vendor/accessible-slick/css/accessible-slick-theme.min.css"
+    />
+
+    <!-- Stili base-->
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="../assets-da/vendor/bootstrap/css/bootstrap.min.css"
+    />
+    <!-- <link type="text/css" rel="stylesheet" href="/assets-da/core/css/core.min.css"> -->
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="../risorse_dt_ext/stili/core.min.custom.css"
+    />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="../risorse_dt_ext/stili/custom.css"
+    />
+
+    <script
+      type="text/javascript"
+      src="../assets-da/vendor/jquery/jquery.min.js"
+    ></script>
+
+    <!-- Tutti gli altri Js -->
+    <script src="../assets-da/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- vendors di default -->
+
+    <script src="../assets-da/vendor/accessible-slick/js/slick.min.js"></script>
+
+    <script>
+      $(function () {
+        $("#checkbox-remember").on("change", function () {
+          if ($(this).is(":checked")) {
+            $("#rememberme").val() == "on";
+          } else {
+            $("#rememberme").val() == "";
+          }
+        });
+        $(window).resize();
+      });
+    </script>
+
+    <script type="text/javascript">
+      $(function () {
+        $("#checkbox-remember").on("change", function () {
+          if ($(this).is(":checked")) {
+            $("#rememberme").val("on");
+          } else {
+            $("#rememberme").val("");
+          }
+        });
+
+        $("#password-trigger")
+          .on("mousedown touchstart", function () {
+            $("#password").attr("type", "text");
+          })
+          .on("mouseup touchend", function () {
+            $("#password").attr("type", "password");
+          })
+          .on("mouseleave", function () {
+            $("#password").attr("type", "password");
+          });
+      });
+
+      function deleteRememberMe() {
+        $("#username").val("");
+        $("#firstname").text("");
+        $(".rememberme_hidden").show();
+        $(".rememberme_shown").hide();
+        $("#rememberme").val("");
+      }
+    </script>
+
+    <script
+      src="https://assets.adobedtm.com/launch-EN592261e36dc14b10a9936e854a4b30db.min.js"
+      async
+    ></script>
+
+    <script type="text/javascript" src="posteID/x-jod-poste-id.js"></script>
+
+    <script
+      type="text/javascript"
+      src="resources/portal/js-rsa-2/hashtable.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="resources/portal/js-rsa-2/rsa.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="resources/portal/js-rsa-2/pbase-css-poste.js"
+    ></script>
+
+    <script
+      type="text/javascript"
+      src="resources/portal/js-polling/jdpolling.js"
+    ></script>
+    <script type="text/javascript">
+      const appsmodalimgJs = new Map();
+
+      appsmodalimgJs.set(
+        "ALL",
+        "/risorse_dt_ext/icone/small-modal-ico-pp-pt.png",
+      );
+
+      appsmodalimgJs.set(
+        "app-bpol",
+        "/risorse_dt_ext/icone/small-modal-ico-bp.png",
+      );
+
+      appsmodalimgJs.set(
+        "app-up",
+        "/risorse_dt_ext/icone/small-modal-ico-pt.png",
+      );
+
+      appsmodalimgJs.set(
+        "app-up,app-bpol",
+        "/risorse_dt_ext/icone/small-modal-ico-bp-pt.png",
+      );
+
+      appsmodalimgJs.set(
+        "app-sca-demo",
+        "/risorse_dt_ext/icone/small-modal-ico-bp.png",
+      );
+
+      appsmodalimgJs.set(
+        "app-bpol,app-ppay",
+        "/risorse_dt_ext/icone/small-modal-ico-bp-pp.png",
+      );
+
+      appsmodalimgJs.set(
+        "app-quaresima",
+        "/risorse_dt_ext/icone/small-modal-ico-pt.png",
+      );
+
+      appsmodalimgJs.set(
+        "app-ppay,app-up",
+        "/risorse_dt_ext/icone/small-modal-ico-pp-pt.png",
+      );
+
+      appsmodalimgJs.set(
+        "app-up,app-ppay",
+        "/risorse_dt_ext/icone/small-modal-ico-pp-pt.png",
+      );
+
+      appsmodalimgJs.set(
+        "app-bpol,app-up",
+        "/risorse_dt_ext/icone/small-modal-ico-bp-pt.png",
+      );
+
+      appsmodalimgJs.set(
+        "app-up,app-bpol,app-ppay",
+        "/risorse_dt_ext/icone/small-modal-ico-bp-pp-pt.png",
+      );
+
+      appsmodalimgJs.set(
+        "app-ppay",
+        "/risorse_dt_ext/icone/small-modal-ico-pp.png",
+      );
+
+      appsmodalimgJs.set(
+        "app-bpol,app-ppay,app-up",
+        "/risorse_dt_ext/icone/small-modal-ico-bp-pp-pt.png",
+      );
+    </script>
+
+    <script type="text/javascript">
+      function logintest(actForm) {
+        try {
+          posteSubmit(actForm);
+        } catch (e) {}
+        return true;
+      }
+
+      var organizationmessage = "Poste.it";
+      var federated = false;
+      var issuer = "";
+      var cancelurl = "";
+      var sp_link = "";
+      var sp_link_label = "";
+      var sp_subtitle = "";
+      var sp_posteid = true;
+      var sp_business = true;
+    </script>
+
+    <script type="text/javascript">
+      $(function () {
+        var isRememberMe = false;
+        if (isRememberMe) {
+          $("#username").val("");
+          $("#firstname").text("");
+          $(".rememberme_hidden").hide();
+          $(".rememberme_shown").show();
+          $("#rememberme").val("on");
+        }
+      });
+    </script>
+  </head>
+  <body class="pattern-simple-01" style="overflow: inherit">
+    <div class="content-alert-browser">
+      <div id="consent_blackbar"></div>
+    </div>
+
+    <nav id="skiplink" aria-label="Navigazione di pagina">
+      <ul>
+        <li>
+          <a
+            tabindex="0"
+            class="skip-link sr-only-focusable-abs"
+            href="#accessibility-anchor"
+            >Passa al contenuto principale</a
+          >
+        </li>
+        <li>
+          <a class="skip-link sr-only-focusable-abs" href="#footer"
+            >Passa al footer di pagina</a
+          >
+        </li>
+      </ul>
+    </nav>
+    <header>
+      <!-- Content Navbar-->
+      <div class="content" id="content-navbar">
+        <div class="content-wrap">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="content-navbar-wrap">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <nav
+                        class="navbar navbar-default navbar-flow"
+                        id="nav-def-flux"
+                        aria-label="barra di navigazione: menu, ricerca del sito e assistenza"
+                      >
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header justify-content-sm-end">
+                          <!-- <div class="navbar-wrap w-100 justify-content-start hidden-xs">&nbsp;</div> -->
+                          <div class="navbar-wrap">
+                            <a
+                              class="navbar-brand"
+                              href="https://www.poste.it/index.html"
+                              title="Torna a Poste.it"
+                            >
+                              <img
+                                id="logo"
+                                alt="Logo PosteItaliane"
+                                src="../assets-da/core/img/loghi/logo-poste-italiane.png"
+                                srcset="
+                                  ../assets-da/core/img/loghi/logo-poste-italiane@2x.png 2x
+                                "
+                              />
+                            </a>
+                          </div>
+                          <div class="navbar-wrap w-100 justify-content-end">
+                            <ul class="nav navbar-nav text-right"></ul>
+                          </div>
+                        </div>
+                      </nav>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main id="accessibility-anchor" tabindex="-1" class="focus-mouse">
+      <div class="content" id="content-abstract">
+        <div class="content-wrap">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="abstract">
+                  <div class="abstract-heading text-center">
+                    <h1>Accedi</h1>
+                    <span class="abstract-subtitle"
+                      >Per accedere a
+                      <strong><span id="titolo-fcc">Poste.it</span></strong>
+                      devi essere registrato.</span
+                    >
+
+                    <a
+                      class="btn btn-xs btn-default btn-link"
+                      title="Se sei un cliente business clicca qui."
+                      href="https://business.poste.it/business/myposte/index.html"
+                    >
+                      <span class="icon me-1">
+                        <img
+                          src="../risorse_dt_ext/icone/business-account.svg"
+                          srcset="../risorse_dt_ext/icone/business-account.svg"
+                        />
+                        <svg focusable="false"></svg>
+                      </span>
+                      Se sei un cliente business clicca qui.
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="content" id="content-main">
+        <div class="content-wrap">
+          <div class="container">
+            <div class="row row-space">
+              <div class="col-sm-12">
+                <div class="main-pills">
+                  <div class="main-pills-wrap">
+                    <div class="row">
+                      <div class="col-sm-12 equalize" style="min-height: 564px">
+                        <h2 class="text-center mt-4 mb-3 rememberme_hidden">
+                          Inserisci le tue credenziali
+                        </h2>
+
+                        <div class="row rememberme_hidden">
+                          <div
+                            class="col-sm-12 col-md-10 col-md-push-1 col-lg-8 col-lg-push-2 text-center"
+                          >
+                            <p>Non hai un account?</p>
+                            <p class="text-center">
+                              <a
+                                class="btn btn-xs btn-default btn-link"
+                                title="Registrati"
+                                href="https://www.poste.it/posteit-retail-registration-service/webapp/index.html"
+                              >
+                                <span class="icon me-1">
+                                  <svg focusable="false">
+                                    <use
+                                      xlink:href="/assets-da/core/img/iconset/sprite.svg#001b-arrow-forward-m"
+                                      href="/assets-da/core/img/iconset/sprite.svg#001b-arrow-forward-m"
+                                    ></use>
+                                  </svg>
+                                </span>
+                                Registrati
+                              </a>
+                            </p>
+                          </div>
+                        </div>
+
+                        <div
+                          class="row row-space text-xs-center rememberme_shown"
+                          style="display: none"
+                        >
+                          <img
+                            src="../risorse_dt_ext/icone/empty-profile.png"
+                            srcset="
+                              ../risorse_dt_ext/icone/empty-profile@2x.png 2x
+                            "
+                          />
+                          <h4 id="firstname"></h4>
+                          <p>
+                            <a href="javascript:deleteRememberMe();"
+                              >Non sei tu?</a
+                            >
+                          </p>
+                        </div>
+                        <div id="deeplinkid" class="row hidden">
+                          <div class="col-sm-12">
+                            <div
+                              class="box-rack flex flex-row box-cyan my-3 py-3 py-sm-4 gap-3"
+                            >
+                              <div
+                                class="box-wrap flex justify-content-start align-items-center"
+                              >
+                                <span
+                                  class="icon icon-48 flex align-items-center"
+                                >
+                                  <img
+                                    class="img-responsive"
+                                    src="../risorse_dt_ext/icone/accedi-con-poste-italiane-@1x.png"
+                                    srcset="
+                                      ../risorse_dt_ext/icone/accedi-con-poste-italiane-@2x.png 2x
+                                    "
+                                    alt="icona app poste italiane"
+                                  />
+                                </span>
+                              </div>
+                              <div class="box-body">
+                                <span class="fw-bold block">
+                                  Hai l'App Poste Italiane?<br />
+                                  <a
+                                    href="javascript:void(0);"
+                                    id="deeplinkid_a_up"
+                                    onclick="deepLinkOpen('app-up')"
+                                    >Accedi pi&ugrave; rapidamente</a
+                                  >
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-sm-12">
+                            <div
+                              class="box-rack flex flex-row box-cyan my-3 py-3 py-sm-4 gap-3"
+                            >
+                              <div
+                                class="box-wrap flex justify-content-start align-items-center"
+                              >
+                                <span
+                                  class="icon icon-48 flex align-items-center"
+                                >
+                                  <img
+                                    class="img-responsive"
+                                    src="../risorse_dt_ext/icone/accedi-con-bancoposta-@1x.png"
+                                    srcset="
+                                      ../risorse_dt_ext/icone/accedi-con-bancoposta-@2x.png 2x
+                                    "
+                                    alt="icona app bancoposta"
+                                  />
+                                </span>
+                              </div>
+                              <div class="box-body">
+                                <span class="fw-bold block">
+                                  Hai l'App BancoPosta?<br />
+                                  <a
+                                    href="javascript:void(0);"
+                                    id="deeplinkid_a_bp"
+                                    onclick="deepLinkOpen('app-bpol')"
+                                    >Accedi pi&ugrave; rapidamente</a
+                                  >
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-sm-12">
+                            <div
+                              class="box-rack flex flex-row box-cyan my-3 py-3 py-sm-4 gap-3"
+                            >
+                              <div
+                                class="box-wrap flex justify-content-start align-items-center"
+                              >
+                                <span
+                                  class="icon icon-48 flex align-items-center"
+                                >
+                                  <img
+                                    class="img-responsive"
+                                    src="../risorse_dt_ext/icone/accedi-con-postepay-@1x.png"
+                                    srcset="
+                                      ../risorse_dt_ext/icone/accedi-con-postepay-@2x.png 2x
+                                    "
+                                    alt="icona app postepay"
+                                  />
+                                </span>
+                              </div>
+                              <div class="box-body">
+                                <span class="fw-bold block">
+                                  Hai l'App Postepay?<br />
+                                  <a
+                                    href="javascript:void(0);"
+                                    id="deeplinkid_a_pp"
+                                    onclick="deepLinkOpen('app-ppay')"
+                                    >Accedi pi&ugrave; rapidamente</a
+                                  >
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <form
+                          id="form-login"
+                          method="POST"
+                          action="fcc-authentication.html"
+                          name="loginf"
+                          onsubmit="logintest(this)"
+                        >
+                          <div class="row row-space">
+                            <div
+                              class="col-sm-12 col-md-10 col-md-push-1 col-lg-8 col-lg-push-2 mt-0 mt-sm-2 mb-3"
+                            >
+                              <input
+                                type="hidden"
+                                name="dep"
+                                id="dep"
+                                value=""
+                              />
+                              <input
+                                type="hidden"
+                                name="dop"
+                                id="dop"
+                                value=""
+                              />
+                              <input
+                                type="hidden"
+                                name="evp"
+                                id="evp"
+                                value=""
+                              />
+                              <input
+                                type="hidden"
+                                name="mid"
+                                id="mid"
+                                value=""
+                              />
+                              <input
+                                type="hidden"
+                                name="rememberme"
+                                id="rememberme"
+                                value=""
+                              />
+                              <fieldset>
+                                <legend class="sr-only">
+                                  Credenziali di accesso
+                                </legend>
+                                <div
+                                  class="form-group form-group-abs rememberme_hidden"
+                                >
+                                  <label class="control-label" for="username"
+                                    >Nome utente</label
+                                  >
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                    id="username"
+                                    name="username"
+                                    placeholder=""
+                                    title="Nome utente"
+                                  />
+                                </div>
+                                <div class="form-group form-group-abs">
+                                  <label for="password" class="control-label"
+                                    >Password</label
+                                  >
+                                  <div class="input-group">
+                                    <input
+                                      type="password"
+                                      value=""
+                                      placeholder=""
+                                      id="password"
+                                      name="password"
+                                      class="form-control"
+                                    />
+                                    <div class="input-group-addon">
+                                      <button
+                                        class="btn btn-addon"
+                                        type="button"
+                                        title="Visualizza/nascondi password"
+                                        tabindex="-1"
+                                        id="password-trigger"
+                                      >
+                                        <span class="icon">
+                                          <svg focusable="false">
+                                            <use
+                                              xlink:href="/assets-da/core/img/iconset/sprite.svg#016b-visibility-on-m"
+                                              href="/assets-da/core/img/iconset/sprite.svg#016b-visibility-on-m"
+                                            ></use>
+                                          </svg>
+                                        </span>
+                                      </button>
+                                    </div>
+                                  </div>
+                                  <div
+                                    class="form-check mt-1"
+                                    role="presentation"
+                                  >
+                                    <input
+                                      id="checkbox-remember"
+                                      type="checkbox"
+                                    />
+                                    <label
+                                      class="control-label"
+                                      for="checkbox-remember"
+                                      >Ricorda il mio nome utente</label
+                                    >
+                                  </div>
+                                </div>
+                              </fieldset>
+                            </div>
+                          </div>
+                          <p class="text-center">
+                            <a
+                              class="rememberme_hidden"
+                              title="Recupera il nome utente o la password"
+                              href="https://www.poste.it/posteit-retail-selfcare-service/webapp/index.html"
+                            >
+                              Recupera il nome utente o la password
+                            </a>
+                            <a
+                              class="rememberme_shown"
+                              style="display: none"
+                              title="Hai dimenticato la password?"
+                              href="https://www.poste.it/posteit-retail-selfcare-service/webapp/index.html"
+                            >
+                              Hai dimenticato la password?
+                            </a>
+                          </p>
+                          <p
+                            class="btn-container btn-container-center mt-3 mt-md-4"
+                          >
+                            <button
+                              form="form-login"
+                              type="submit"
+                              data-toggle="modal"
+                              data-target="#loginModal"
+                              title="Accedi"
+                              class="btn btn-responsive btn-primary"
+                            >
+                              Accedi
+                            </button>
+                          </p>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- panel qrcode  -->
+            </div>
+            <!-- area ID PosteID Abilitato SPID  -->
+
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="main-pills mode-light">
+                  <div class="main-pills-wrap extra-service-content">
+                    <div class="row equalize-group">
+                      <div class="col-xs-12 col-sm-3">
+                        <div
+                          class="extra-service-content-logo text-left flex justify-content-center align-items-center equalize-1"
+                          style="min-height: 100px"
+                        >
+                          <img
+                            loading="lazy"
+                            class="img-responsive"
+                            width="172"
+                            height="48"
+                            src="../assets-da/app/login/img/posteID@1x.png"
+                            srcset="
+                              ../assets-da/app/login/img/posteID@2x.png 2x
+                            "
+                            alt=""
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="col-sm-9 col-xs-12 equalize-1"
+                        style="min-height: 100px"
+                      >
+                        <div class="row mt-3 mt-sm-0 ms-sm-3">
+                          <div class="col-xs-12 col-md-7">
+                            <div class="box-editable-area">
+                              <h2>Accedi con PosteID</h2>
+                              <div class="box-body">
+                                <p>
+                                  Puoi eseguire l'accesso con l'Identit&agrave;
+                                  Digitale PosteID abilitato a SPID.
+                                  <a
+                                    href="https://posteid.poste.it/identificazione/identificazione.shtml"
+                                  >
+                                    Scopri di pi&ugrave; </a
+                                  >.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-xs-12 col-md-5">
+                            <p
+                              class="btn-container equalize-1 height-sm-auto height-xs-auto flex justify-content-xs-start justify-content-sm-start justify-content-md-center align-items-center mt-3 mt-md-0"
+                              style="min-height: 100px"
+                            >
+                              <a
+                                href="#"
+                                id="bottonePosteID"
+                                title="Accedi con PosteID"
+                                class="btn btn-responsive btn-secondary"
+                                role="button"
+                                >Accedi con PosteID</a
+                              >
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <form name="xqr" id="xqr" method="POST" action="qrcodelogin.gif">
+        <input
+          name="x-user-signature-transaction"
+          id="x-user-signature-transaction"
+          type="hidden"
+          value=""
+        />
+        <input type="hidden" name="x-dep" id="x-dep" value="" />
+        <input type="hidden" name="x-dop" id="x-dop" value="" />
+        <input type="hidden" name="x-evp" id="x-evp" value="" />
+        <input type="hidden" name="x-mid" id="x-mid" value="" />
+      </form>
+    </main>
+    <footer>
+      <div class="content content-footer content-footer-extra">
+        <div class="content-wrap">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="row my-4">
+                  <div class="col-sm-8">
+                    <div class="clearfix">
+                      <div class="base-footer mt-3 mt-sm-0">
+                        <div class="clearfix">
+                          <ul class="list-unstyled pull-sm-left">
+                            <li>
+                              <span
+                                class="block fs-small text-xs-center text-sm-left"
+                                >&copy; Poste Italiane 2026 - Partita iva :
+                                01114601006</span
+                              >
+                            </li>
+                            <!--   <li><p id="teconsent" class="block fs-small text-xs-center text-sm-right"></p></li> -->
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div
+                      class="text-center text-sm-right"
+                      id="teconsent"
+                      consent="0"
+                      aria-label="Open Cookie Preferences Modal"
+                      role="complementary"
+                    ></div>
+                  </div>
+                </div>
+                <button class="btn btn-cta btn-primary back-to-top">
+                  <span class="icon">
+                    <svg focusable="false">
+                      <use
+                        xlink:href="/assets-da/core/img/iconset/sprite.svg#007b-expand-less-m"
+                      ></use>
+                    </svg>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Script -->
+      <script
+        type="text/javascript"
+        src="../assets-da/core/js/utilita.js"
+      ></script>
+      <script
+        type="text/javascript"
+        src="../assets-da/core/js/poste-it.js"
+      ></script>
+      <script
+        type="text/javascript"
+        src="../assets-da/core/js/start-script.js"
+      ></script>
+    </footer>
+
+    <script type="text/javascript">
+      function xxxerror(data) {
+        setTimeout(function () {
+          try {
+            window.location.replace("null");
+          } catch (e) {
+            window.location.href = "null";
+          }
+        }, 3000);
+      }
+    </script>
+
+    <div
+      id="overlay"
+      class="overlay"
+      aria-hidden="true"
+      style="display: none"
+    ></div>
+    <deepl-input-controller></deepl-input-controller>
+
+    <script language="JavaScript"></script>
+
+    <form
+      name="loginform1"
+      id="loginform1"
+      method="post"
+      action="https://securelogin.poste.it/jod-fcc/dislogin"
+    >
+      <input type="hidden" value="" id="secureToken" name="secureToken" />
+      <input type="hidden" value="" id="signature" name="signature" />
+      <input type="hidden" name="dep" id="dep" value="" />
+      <input type="hidden" name="dop" id="dop" value="" />
+      <input type="hidden" name="evp" id="evp" value="" />
+    </form>
+
+    <script type="text/javascript">
+      jQuery("#x_chiudi").attr("href", "https://www.poste.it");
+    </script>
+
+    <script type="text/javascript">
+      $("#_nocookie").toggleClass("hide");
+      //	$('#bottonePosteID').html('<div class="bottonePosteID-wrapper"><a href="/jod-fcc/federated/loginsecure"><img src="/risorse_dt/condivise/immagini/loghi/logo-posteid.png" srcset="/risorse_dt/condivise/immagini/loghi/logo-posteid@2x.png 2x" class="" /><span class="wrapperPosteID-info">Entra con PosteID <span class="wrapperPosteID-name"></span></span></a></div><div class="newUserPosteID-wrapper"></div>');
+      $("#bottonePosteID").attr("href", "/jod-fcc/federated/loginsecure");
+    </script>
+  </body>
+</html>
